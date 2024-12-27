@@ -9,7 +9,6 @@ public class JavaCurrencyFormatter {
         double payment = scanner.nextDouble();
         scanner.close();
         
-        // Write your code here.
         String demo=payment+"";
         StringBuilder fr;
         for(int i=0;i<fr.length();i++){
