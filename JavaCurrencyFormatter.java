@@ -9,20 +9,19 @@ public class JavaCurrencyFormatter {
         double payment = scanner.nextDouble();
         scanner.close();
         
-        String demo=payment+"";
-        StringBuilder fr;
-        for(int i=0;i<fr.length();i++){
-            if(demo.charAt(i)=='.')
-            {
-                if (demo.charAt(i) == '.') {
-        fr.setCharAt(i, ','); 
-            }
-        }
-        demo=demo/
-        String us="$"+demo;
-        String india="Rs."+demo;
-        String china="￥"+demo;
-        String france= fr+" €";
+        
+        NumberFormat usFormat = NumberFormat.getCurrencyInstance(Locale.US);
+        String us = usFormat.format(payment);
+
+        Locale indiaLocale = new Locale("en", "IN");
+        NumberFormat indiaFormat = NumberFormat.getCurrencyInstance(indiaLocale);
+        String india = indiaFormat.format(payment);
+
+        NumberFormat chinaFormat = NumberFormat.getCurrencyInstance(Locale.CHINA);
+        String china = chinaFormat.format(payment);
+
+        NumberFormat franceFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        String france = franceFormat.format(payment);
         
         
         System.out.println("US: " + us);
